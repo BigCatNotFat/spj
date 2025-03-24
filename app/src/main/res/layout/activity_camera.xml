@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- 顶部控制栏 - 原始LinearLayout类型 -->
+    <!-- 顶部栏 - 原始LinearLayout类型 -->
     <LinearLayout
         android:id="@+id/topControlsContainer"
         android:layout_width="match_parent"
