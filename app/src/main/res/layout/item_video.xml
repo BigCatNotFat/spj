@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="2dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+
+        <!-- 缩略图 -->
+        <ImageView
+            android:id="@+id/imageViewThumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/video_thumbnail"
+            android:scaleType="centerCrop" />
+
+        <!-- 播放按钮 -->
+        <ImageView
+            android:id="@+id/imageViewPlay"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerInParent="true"
+            android:alpha="0.7"
+            android:contentDescription="@string/play_button"
+            android:src="@drawable/ic_play_circle" />
+
+        <!-- 视频时长 -->
+        <TextView
+            android:id="@+id/textViewDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="8dp"
+            android:background="#80000000"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="2dp"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:visibility="gone"
+            tools:text="1:25"
+            tools:visibility="visible" />
+
+        <!-- 多选覆盖层 -->
+        <View
+            android:id="@+id/viewSelectionOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#66000000"
+            android:visibility="gone" />
+
+        <!-- 勾选图标 - 放在最顶层 -->
+        <CheckBox
+            android:id="@+id/checkBoxSelected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="8dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:visibility="gone" />
+
+        <!-- 注释文本 -->
+        <TextView
+            android:id="@+id/textViewNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textViewDate"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/bg_gradient"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:visibility="gone"
+            tools:text="这是视频注释" />
+
+        <!-- 日期文本 -->
+        <TextView
+            android:id="@+id/textViewDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bg_gradient"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            tools:text="2023-03-11" />
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_multi_select"
+        android:icon="@drawable/ic_select_all"
+        android:title="@string/select_all"
+        app:showAsAction="always" />
+
+    <!-- 将导入按钮折叠到菜单中 -->
+    <item
+        android:id="@+id/action_import"
+        android:icon="@drawable/ic_import"
+        android:title="@string/import_video"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/action_import_video"
+                android:icon="@drawable/ic_import"
+                android:title="@string/import_video" />
+            <item
+                android:id="@+id/action_import_image"
+                android:icon="@drawable/ic_image"
+                android:title="@string/import_image" />
+            <item
+                android:id="@+id/action_batch_import"
+                android:icon="@drawable/ic_import"
+                android:title="@string/batch_import"
+                app:showAsAction="never" />
+        </menu>
+    </item>
+
+    <!-- 新增总结按钮 -->
+    <item
+        android:id="@+id/action_summary"
+        android:icon="@drawable/ic_summary"
+        android:title="@string/summary"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_delete_entry"
+        android:icon="@drawable/ic_delete"
+        android:title="@string/delete_entry"
+        app:showAsAction="never" />
+</menu>

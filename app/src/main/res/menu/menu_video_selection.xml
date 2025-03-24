@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 简化的多选模式菜单 (menu_video_selection.xml) -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- 使用更简洁的图标 -->
+    <item
+        android:id="@+id/action_select_all"
+        android:icon="@drawable/ic_select_all"
+        android:title="@string/select_all"
+        app:showAsAction="always" />
+
+    <!-- 仅在多选模式下显示，避免与常规菜单重复 -->
+    <item
+        android:id="@+id/action_share_selected"
+        android:icon="@drawable/ic_share"
+        android:title="@string/share_selected"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_download_selected"
+        android:icon="@drawable/ic_download"
+        android:title="@string/download_selected"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_delete_selected"
+        android:icon="@drawable/ic_delete"
+        android:title="@string/delete_selected"
+        app:showAsAction="always" />
+</menu>

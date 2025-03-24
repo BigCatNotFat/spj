@@ -1,0 +1,21 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+        jcenter() // 临时添加用于支持旧依赖
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral() // 这已经包含了 https://repo1.maven.org/maven2
+        // 删除 maven { url "https://repo1.maven.org/maven2" } 因为它已被 mavenCentral() 包含
+        maven { url "https://jitpack.io" }
+    }
+}
+
+rootProject.name = "spj"
+include ':app'
+include ':sdk'

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="2dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="#F5F5F5">
+
+        <!-- 小标题栏 - 和原卡片相似 -->
+        <TextView
+            android:id="@+id/textViewBackTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="8dp"
+            android:textColor="#333333"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            tools:text="2023-03-15" />
+
+        <!-- 全屏编辑按钮 -->
+        <Button
+            android:id="@+id/buttonFullscreenEdit"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:minWidth="0dp"
+            android:minHeight="32dp"
+            android:paddingHorizontal="8dp"
+            android:text="@string/edit_fullscreen"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/textViewBackDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="8dp"
+            android:textColor="#333333"
+            android:textSize="12sp"
+            tools:text="1:25" />
+
+        <!-- 识别进度布局 - 默认隐藏 -->
+        <LinearLayout
+            android:id="@+id/layoutRecognitionProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/buttonFlipBack"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:background="#F0F0F0"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/textViewProgressStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="正在准备识别..."
+                android:textSize="12sp"
+                android:gravity="center"/>
+
+            <ProgressBar
+                android:id="@+id/progressBarRecognition"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:indeterminate="true"/>
+        </LinearLayout>
+
+        <!-- 简化的笔记区域 -->
+        <EditText
+            android:id="@+id/editTextDetailedNotes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/textViewBackTitle"
+            android:layout_above="@+id/layoutRecognitionProgress"
+            android:background="@null"
+            android:gravity="top|start"
+            android:hint="双击添加笔记..."
+            android:padding="8dp"
+            android:textSize="14sp"
+            android:inputType="textMultiLine"
+            android:scrollbars="vertical"
+            android:importantForAutofill="no" />
+
+        <!-- 简化的底部操作栏 -->
+        <ImageButton
+            android:id="@+id/buttonFlipBack"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/flip_back"
+            android:src="@drawable/ic_flip_to_front"
+            app:tint="#555555" />
+        <Button
+            android:id="@+id/buttonRecognizeText"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@id/buttonSaveNotes"
+            android:minWidth="0dp"
+            android:minHeight="36dp"
+            android:paddingHorizontal="8dp"
+            android:text="识别"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/buttonSaveNotes"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@id/buttonFlipBack"
+            android:minWidth="0dp"
+            android:minHeight="36dp"
+            android:paddingHorizontal="8dp"
+            android:text="保存"
+            android:textSize="12sp" />
+
+        <!-- 隐藏的字段，在代码中仍然可以引用 -->
+        <TextView
+            android:id="@+id/textViewLastEditedTimestamp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/buttonAddTimestamp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_date_for_video"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupDateOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/radioCurrentDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/use_current_date"
+            android:checked="true"
+            android:padding="8dp"/>
+
+        <RadioButton
+            android:id="@+id/radioOriginalDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/use_original_date"
+            android:padding="8dp"/>
+
+        <RadioButton
+            android:id="@+id/radioCustomDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/use_custom_date"
+            android:padding="8dp"/>
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/layoutCustomDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/buttonPickDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pick_date" />
+
+        <TextView
+            android:id="@+id/textViewSelectedDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>

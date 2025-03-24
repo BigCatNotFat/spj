@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SummaryActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 当前总结部分 -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardCurrentSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/current_summary"
+                        android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                    <!-- 生成总结阶段部分 -->
+                    <LinearLayout
+                        android:id="@+id/layoutGenerateStage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/buttonPreviewNotes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/preview_notes" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/buttonGenerateSummary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:enabled="false"
+                            android:text="@string/generate_summary" />
+                    </LinearLayout>
+
+                    <!-- 预览部分 -->
+                    <!-- 预览部分 - 修复滚动问题 -->
+                    <!-- 预览部分 - 添加全屏编辑按钮 -->
+                    <LinearLayout
+                        android:id="@+id/layoutPreview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/notes_preview_editable"
+                                android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/buttonFullscreenEdit"
+                                style="@style/Widget.MaterialComponents.Button.TextButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/edit_fullscreen"
+                                android:textSize="12sp"
+                                android:minWidth="0dp"
+                                android:padding="8dp" />
+                        </LinearLayout>
+
+                        <!-- 使用固定高度的EditText并启用内部滚动 -->
+                        <EditText
+                            android:id="@+id/editTextNotesPreview"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/edit_text_background"
+                            android:gravity="top|start"
+                            android:inputType="textMultiLine"
+                            android:scrollbars="vertical"
+                            android:fadeScrollbars="false"
+                            android:padding="12dp"
+                            android:textSize="14sp"
+                            android:hint="@string/edit_notes_hint" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/try_fullscreen_edit"
+                            android:textSize="12sp"
+                            android:textColor="#757575"
+                            android:gravity="center" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/buttonCancelPreview"
+                                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="4dp"
+                                android:layout_weight="1"
+                                android:text="@string/cancel" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/buttonConfirmPreview"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_weight="1"
+                                android:text="@string/confirm" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- 进度条 -->
+                    <LinearLayout
+                        android:id="@+id/layoutProgress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/textViewProgress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/generating_summary"
+                            android:textAlignment="center" />
+
+                        <ProgressBar
+                            android:id="@+id/progressBar"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:indeterminate="true" />
+                    </LinearLayout>
+
+                    <!-- 总结内容 -->
+                    <TextView
+                        android:id="@+id/textViewSummaryContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        android:visibility="gone"
+                        tools:text="这是总结内容..."
+                        tools:visibility="visible" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- 历史总结部分 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/history_summaries"
+                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewSummaries"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:clipToPadding="false"
+                android:padding="0dp" />
+
+            <!-- 空视图 -->
+            <TextView
+                android:id="@+id/textViewEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/no_summaries_yet"
+                android:textAlignment="center"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
